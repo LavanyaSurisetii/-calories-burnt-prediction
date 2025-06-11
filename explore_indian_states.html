@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Indian States & UTs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 0;
+    }
+    .state-buttons {
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .state-buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #2196F3;
+      color: white;
+    }
+    .info-section {
+      margin: 30px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Explore Indian States & UTs</h1>
+  </header>
+
+  <main>
+    <div class="state-buttons" id="buttonsContainer"></div>
+    <section id="infoSection" class="info-section">
+      <h2 id="stateName">Select a state or UT</h2>
+      <p id="stateDescription"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Explore Indian States</p>
+  </footer>
+
+  <script>
+    const statesInfo = {
+      "Andhra Pradesh": "Known for its Tirupati Temple and rich culture.",
+      "Arunachal Pradesh": "The land of the rising sun in India.",
+      "Assam": "Famous for tea gardens and Kaziranga National Park.",
+      "Bihar": "Birthplace of Buddhism and home to Nalanda University.",
+      "Chhattisgarh": "Rich in minerals and tribal culture.",
+      "Goa": "Popular for its beaches and Portuguese heritage.",
+      "Gujarat": "Known for Gir lions and the Rann of Kutch.",
+      "Haryana": "Close to Delhi, known for agriculture.",
+      "Himachal Pradesh": "Hilly state with Shimla and Manali.",
+      "Jharkhand": "Mineral-rich with beautiful waterfalls.",
+      "Karnataka": "Home to Bangalore and ancient ruins in Hampi.",
+      "Kerala": "Famous for backwaters and Ayurveda.",
+      "Madhya Pradesh": "Known for Khajuraho and wildlife parks.",
+      "Maharashtra": "Home to Mumbai and Ajanta-Ellora caves.",
+      "Manipur": "Beautiful landscapes and Loktak Lake.",
+      "Meghalaya": "Known for Cherrapunji and living root bridges.",
+      "Mizoram": "Hilly region with a unique tribal culture.",
+      "Nagaland": "Colorful festivals and tribes.",
+      "Odisha": "Famous for Jagannath Temple and Konark Sun Temple.",
+      "Punjab": "Known for Golden Temple and bhangra.",
+      "Rajasthan": "Deserts, forts, and palaces.",
+      "Sikkim": "Mountain state with Kanchenjunga peak.",
+      "Tamil Nadu": "Temples, dance, and Dravidian culture.",
+      "Telangana": "New state with historic Hyderabad.",
+      "Tripura": "Palaces and tribal traditions.",
+      "Uttar Pradesh": "Taj Mahal and spiritual cities like Varanasi.",
+      "Uttarakhand": "Gateway to the Himalayas and Char Dham.",
+      "West Bengal": "Home to Kolkata, Sundarbans, and literature.",
+      "Andaman and Nicobar Islands": "Tropical paradise with coral reefs.",
+      "Chandigarh": "Planned city, capital of Haryana & Punjab.",
+      "Dadra and Nagar Haveli and Daman and Diu": "Coastal beauty with colonial charm.",
+      "Delhi": "Capital of India with historic landmarks.",
+      "Jammu and Kashmir": "Heaven on Earth with beautiful valleys.",
+      "Ladakh": "High altitude desert and Buddhist culture.",
+      "Lakshadweep": "Group of coral islands in Arabian Sea.",
+      "Puducherry": "French colony vibes and serene beaches."
+    };
+
+    function showInfo(state) {
+      document.getElementById("stateName").innerText = state;
+      document.getElementById("stateDescription").innerText = statesInfo[state] || "Information not available.";
+    }
+
+    window.onload = function () {
+      const container = document.getElementById("buttonsContainer");
+      for (const state in statesInfo) {
+        const btn = document.createElement("button");
+        btn.innerText = state;
+        btn.onclick = () => showInfo(state);
+        container.appendChild(btn);
+      }
+    };
+  </script>
+</body>
+</html>
